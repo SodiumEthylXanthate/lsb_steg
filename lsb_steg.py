@@ -99,6 +99,6 @@ if __name__ == "__main__":
 # would produce a key in encoding and ask for it in decoding
 # maybe embed the key in the beginning of the message (always reserve a certain amount of bits for that)
 # add a check to make sure the message bit amount is shorter than image bytes amount
-# upload to github
+# make an init file to dl dependencies
 # make it an option to encrypt the message before hiding it in the image
 # add a way to detect if an extracted message is encrypted and using which cipher + a way to decrypt said message
