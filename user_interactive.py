@@ -10,7 +10,13 @@ MODES  = (ENCODE + DECODE)
 def main():
     # Loading image from given path, required regardless of the operating mode
     img_path = input("Enter the path of your image:\n>> ").lower()
-    img_bytes, img_height, img_width = steg.load_img(img_path)
+
+    # Validating that image path exists
+    try:
+        img_bytes, img_height, img_width = steg.load_img(img_path)
+    except Exception:
+        print("The path you have entered does not exist")
+        return  # Exit the main loop and thus end the program
 
     # Ask for input to determine mode of operation
     mode = input("Choose a mode of operation:\n"\

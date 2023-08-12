@@ -2,6 +2,7 @@
 from PIL import Image
 import numpy as np
 import re
+from os import path
 
 # Constants
 CHANNELS = 3  # Number of channels in RGB mode to properly convert from array to image
@@ -16,7 +17,12 @@ def load_img(img_path):
     Out: img_bytes, list of strings
          img_height, int
          img_width, int
+         False if invalid path
     """
+    # Validate existence of image path
+    if not path.exists(img_path):
+        raise Exception("The path you have entered does not exist")
+
     img = Image.open(img_path)
     pixels = list(img.getdata().convert('RGB'))
     flattened_px = [px for tup in pixels for px in tup]
