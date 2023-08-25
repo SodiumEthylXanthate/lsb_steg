@@ -2,8 +2,8 @@
 import lsb_steg as steg
 
 # Constants
-ENCODE = ("encode", '1')
-DECODE = ("decode", '2')
+ENCODE = ('e', "encode", '1')
+DECODE = ('d', "decode", '2')
 MODES  = (ENCODE + DECODE)
 
 
@@ -34,7 +34,7 @@ def main():
         # Getting mode-specific input
         msg = input("Enter the message to hide in the image:\n>> ")
         out_path = input("Enter a path to which the generated image will be saved:\n>> ")
-        print("Encoding..")
+        print("Encoding...")
         # The actual encoding
         encoded_img = steg.lsb_encode(img_bytes, msg, img_height, img_width)
         
@@ -45,7 +45,7 @@ def main():
             print("Your message is too long, the operation was unsuccessful.")
         
     else:  # Enter decoding mode
-        print("Decoding..")
+        print("Decoding...")
         extracted_msg = steg.lsb_decode(img_bytes)
 
         if extracted_msg:  # Decoding successful
