@@ -42,7 +42,7 @@ def lsb_encode(img_bytes, msg, height, width):
          False                         (if unsuccessful)
     """
     padded_msg = f"{START}{msg}{END}"
-    print(padded_msg)
+    #DEBUG###print(padded_msg)
     msg_bits = ''.join([format(ord(letter), '08b') for letter in padded_msg])  # String containing all message bits
 
     # Safeguard to not allow messages longer than what the image can contain
@@ -71,7 +71,7 @@ def lsb_decode(img_bytes):
     img_lsb = ''.join([byte[-1] for byte in img_bytes])  # String of last bits of all bytes in the image
     lsb_bytes = [img_lsb[i:i+8] for i in range(0, len(img_lsb), 8)]  # 8 bit strings
     extracted_text = ''.join([chr(int(byte, 2)) for byte in lsb_bytes])  # String of all text converted from the extracted bytes
-    print(extracted_text)
+    #DEBUG###print(extracted_text)
     match = PATTERN.search(extracted_text)
 
     # Safegueard to not throw an error if no message was found
